@@ -10,6 +10,14 @@ def encode(code):
             encoded += str(new)
     return encoded
 
+
+def decode(encoded):
+    decoded = ""
+    for digit in encoded:
+        decoded += str((int(digit) - 3) % 10)
+    return decoded
+
+
 if __name__ == '__main__':
     encoded = ""
     decoded = ""
@@ -18,6 +26,7 @@ if __name__ == '__main__':
         if int(option) == 3:
             break
         if int(option) == 2:
+            decoded = decode(encoded)
             print(f"The encoded password is {encoded}, and the original password is {decoded}\n")
         if int(option) == 1:
             code = input("Please enter your password to encode: ")
